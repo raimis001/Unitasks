@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35624e37c97af544a659b5c756f15f0, type: 3}
+  m_Name: MyTasks
+  m_EditorClassIdentifier: 
+  tasksList:
+  - name: Make game
+    description: 
+    priority: 0
+    status: 0
+    type: 1
+  - name: Make character
+    description: 
+    priority: 0
+    status: 0
+    type: 1
+  - name: Character not working
+    description: 'Why?
+
+      I dont knwow'
+    priority: 1
+    status: 2
+    type: 0
+  - name: new task
+    description: 
+    priority: 4
+    status: 0
+    type: 2
