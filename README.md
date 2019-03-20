@@ -10,3 +10,4 @@ Very simple task organizer for Unity3D editor
 * sort by priority
 * Filter by type
 * Edit task, delete task
+^ Search by task name
