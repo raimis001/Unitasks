@@ -45,6 +45,7 @@ namespace Unitasks
 		Color[] priorityColors = new Color[] { Color.red, Color.blue, Color.green, Color.yellow, Color.gray };
 		Color[] typeColors = new Color[] { Color.red, Color.blue, Color.yellow };
 		int currentFilter = -1;
+		string searchString = "";
 		void OnGUI()
 		{
 
@@ -67,7 +68,6 @@ namespace Unitasks
 			EditorStyles.textField.wordWrap = true;
 			EditorStyles.textArea.wordWrap = true;
 			EditorStyles.label.wordWrap = true;
-			EditorStyles.label.alignment = TextAnchor.LowerCenter;
 
 			oldColor = GUI.backgroundColor;
 
@@ -85,12 +85,17 @@ namespace Unitasks
 			if (GUILayout.Button("Tasks", GUILayout.Width(70))) { currentFilter = 1; }
 			GUI.backgroundColor = currentFilter == 2 ? Color.yellow : oldColor;
 			if (GUILayout.Button("Wishes", GUILayout.Width(70))) { currentFilter = 2; }
-
 			GUI.backgroundColor = oldColor;
+
+			EditorGUILayout.LabelField("", GUI.skin.verticalSlider, GUILayout.Width(10));
+			searchString = EditorGUILayout.TextField("Search",searchString, GUILayout.Width(300));
+			EditorGUILayout.LabelField("", GUI.skin.verticalSlider, GUILayout.Width(10));
+
 			EditorGUILayout.EndHorizontal();
 
 			EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
+			EditorStyles.label.alignment = TextAnchor.LowerCenter;
 			EditorGUILayout.BeginHorizontal();
 
 			DrawSection(SimpleTaskStatus.Created);
@@ -141,10 +146,9 @@ namespace Unitasks
 					manager.tasksList.Add(t);
 					TaskEditor.OpenTaskEditor(t);
 				}
+				EditorGUILayout.Space();
 			}
 			scrolls[(int)status] = GUILayout.BeginScrollView(scrolls[(int)status], GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
-
-
 
 			List<SimpleTask> tasks = new List<SimpleTask>(manager.tasksList);
 			tasks.Sort((p1, p2) => p1.priority.CompareTo(p2.priority));
@@ -153,6 +157,7 @@ namespace Unitasks
 			{
 				if (task.status != status) continue;
 				if (currentFilter > -1 && currentFilter != (int)task.type) continue;
+				if (searchString != "" && !task.name.ToLower().Contains(searchString.ToLower())) continue;
 
 				DrawTask(task);
 			}
