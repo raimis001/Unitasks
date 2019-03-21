@@ -107,6 +107,7 @@ namespace Unitasks
 
 			EditorGUILayout.EndVertical();
 			this.Repaint();
+			EditorUtility.SetDirty(manager);
 		}
 		Vector2[] scrolls = new Vector2[3];
 
