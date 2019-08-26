@@ -37,6 +37,13 @@ namespace Unitasks
 				manager = Selection.activeObject as TaskListManager;
 			}
 
+      if (!manager)
+      {
+        TaskListManager[] gui = Resources.FindObjectsOfTypeAll<TaskListManager>();
+        if (gui.Length > 0)
+          manager = gui[0];
+      }
+
 		}
 		const int columnWidth = 300;
 
