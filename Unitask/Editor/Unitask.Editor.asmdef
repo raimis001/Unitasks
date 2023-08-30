@@ -1,0 +1,18 @@
+{
+    "name": "Unitask.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:342cbc9e0bd740141939919b51b98491"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
